@@ -27,7 +27,7 @@ chmod +x run.sh && ./run.sh
 ```
 
 ## Details of training
-This implementation follows the paper in straightforward manner with some caveats: **First**, training in the paper uses 45k/5k train/validation split on the train data, and selects the best performing model based on the performance on the validation set. This implementation does not do any validation testing, so if you need to compare your results on ResNet head-to-head to the orginal paper keep this in mind. **Second**, if you want to train ResNet1202 keep in mind that you need 16GB memory on GPU.
+This implementation follows the paper in straightforward manner with some caveats: **First**, training in the paper uses 45k/5k train/validation split on the train data, and selects the best performing model based on the performance on the validation set. This implementation does not do any validation testing, so if you need to compare your results on ResNet head-to-head to the orginal paper keep this in mind. **Second**, if you want to train ResNet1202 keep in mind that you need 16GB memory on GPU. For the reason I will probably skip ResNet 1202 unless I have a good reason to train it.
 
 ## Pretrained models for download
 1. [ResNet20, 8.27% err](https://github.com/akamaster/pytorch_resnet_cifar10/raw/master/pretrained_models/resnet20.th)
