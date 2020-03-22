@@ -20,7 +20,7 @@ model_names = sorted(name for name in resnet.__dict__
 
 print(model_names)
 
-parser = argparse.ArgumentParser(description='Propert ResNets for CIFAR10 in pytorch')
+parser = argparse.ArgumentParser(description='Proper ResNets for CIFAR10 in pytorch')
 parser.add_argument('--arch', '-a', metavar='ARCH', default='resnet32',
                     choices=model_names,
                     help='model architecture: ' + ' | '.join(model_names) +
@@ -38,9 +38,9 @@ parser.add_argument('--lr', '--learning-rate', default=0.1, type=float,
 parser.add_argument('--momentum', default=0.9, type=float, metavar='M',
                     help='momentum')
 parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
-                    metavar='W', help='weight decay (default: 5e-4)')
+                    metavar='W', help='weight decay (default: 1e-4)')
 parser.add_argument('--print-freq', '-p', default=50, type=int,
-                    metavar='N', help='print frequency (default: 20)')
+                    metavar='N', help='print frequency (default: 50)')
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
@@ -66,9 +66,9 @@ def main():
     # Check the save_dir exists or not
     if not os.path.exists(args.save_dir):
         os.makedirs(args.save_dir)
-
-    model = torch.nn.DataParallel(resnet.__dict__[args.arch]())
-    model.cuda()
+ 
+    model = torch.nn.DataParallel(resnet.__dict__[args.arch]()) # get the model from resnet module based on specified architecture
+    model.cuda() #put model on GPU
 
     # optionally resume from a checkpoint
     if args.resume:
@@ -83,7 +83,8 @@ def main():
         else:
             print("=> no checkpoint found at '{}'".format(args.resume))
 
-    cudnn.benchmark = True
+    cudnn.benchmark = True # may improve performance if input size is not changing by searching for optimal algorithm to run.
+                           # link: https://discuss.pytorch.org/t/what-does-torch-backends-cudnn-benchmark-do/5936/3
 
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
