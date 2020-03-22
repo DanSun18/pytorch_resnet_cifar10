@@ -1,3 +1,7 @@
+'''
+Trains a specifc ResNet architecture (depth) according to provided/default parameters
+'''
+
 import argparse
 import os
 import shutil
@@ -55,7 +59,7 @@ parser.add_argument('--save-dir', dest='save_dir',
 parser.add_argument('--save-every', dest='save_every',
                     help='Saves checkpoints at every specified number of epochs',
                     type=int, default=10)
-best_prec1 = 0
+best_prec1 = 0 #best precision @ 1 (top 1 -error?)
 
 
 def main():
@@ -107,7 +111,7 @@ def main():
         batch_size=128, shuffle=False,
         num_workers=args.workers, pin_memory=True)
 
-    # define loss function (criterion) and pptimizer
+    # define loss function (criterion) and optimizer
     criterion = nn.CrossEntropyLoss().cuda()
 
     if args.half:
@@ -128,7 +132,7 @@ def main():
             param_group['lr'] = args.lr*0.1
 
 
-    if args.evaluate:
+    if args.evaluate: # evaluate only. No training.
         validate(val_loader, model, criterion)
         return
 
