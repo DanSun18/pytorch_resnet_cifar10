@@ -34,13 +34,14 @@ import torch.nn.init as init
 
 from torch.autograd import Variable
 
-__all__ = ['ResNet', 'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110', 'resnet1202']
+__all__ = ['ResNet', 'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110', 'resnet1202'] #defines what modules are exported when the file is imported by other files.
+                                                                                                # in this case it exports the class ResNet and the functions starting with resnet**
 
 def _weights_init(m):
     classname = m.__class__.__name__
     #print(classname)
     if isinstance(m, nn.Linear) or isinstance(m, nn.Conv2d):
-        init.kaiming_normal_(m.weight)
+        init.kaiming_normal_(m.weight) #just a way of initilizing weights according to methods proposed by Kaiming He. 
 
 class LambdaLayer(nn.Module):
     def __init__(self, lambd):
@@ -52,6 +53,10 @@ class LambdaLayer(nn.Module):
 
 
 class BasicBlock(nn.Module):
+    '''
+    A basic block, as defined and illustrated in the ResNet paper. It consists of Conv layerse
+    and shortcut. 
+    '''
     expansion = 1
 
     def __init__(self, in_planes, planes, stride=1, option='A'):
@@ -84,20 +89,32 @@ class BasicBlock(nn.Module):
 
 
 class ResNet(nn.Module):
+    '''
+    A flexible class that can produce the right model if the number of layers are given
+    '''
     def __init__(self, block, num_blocks, num_classes=10):
         super(ResNet, self).__init__()
         self.in_planes = 16
 
         self.conv1 = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(16)
+        
+        '''
+        A total of 3 'big' layers. num_blocks is an array with 3 elements, each specifying
+        the number of blocks in the corresonding layer. 
+        '''
         self.layer1 = self._make_layer(block, 16, num_blocks[0], stride=1)
         self.layer2 = self._make_layer(block, 32, num_blocks[1], stride=2)
         self.layer3 = self._make_layer(block, 64, num_blocks[2], stride=2)
+        
         self.linear = nn.Linear(64, num_classes)
 
-        self.apply(_weights_init)
+        self.apply(_weights_init) # recursively apply the _weights_init function to each submodule.
+                                  # in other words, do parameter initilization. 
 
     def _make_layer(self, block, planes, num_blocks, stride):
+        # I do not quite understand, but it may suffice to say
+        # it is just making the specific blocks within each 'big' layer
         strides = [stride] + [1]*(num_blocks-1)
         layers = []
         for stride in strides:
@@ -142,6 +159,10 @@ def resnet1202():
 
 
 def test(net):
+    # prints the total number of parameters and the number of layers in a given model
+    ## Currently I do not see much point getting into the code itself, beside its functionality
+    ## Sure I could learn what it is doing, but that does not bring much benefit to my research 
+    ## at the moment. So I'll skip that for now.
     import numpy as np
     total_params = 0
 
@@ -152,8 +173,10 @@ def test(net):
 
 
 if __name__ == "__main__":
+    # if script is run directly, test all resnet architectures defined by __all__
     for net_name in __all__:
         if net_name.startswith('resnet'):
             print(net_name)
-            test(globals()[net_name]())
+            test(globals()[net_name]()) # it is just a fancy way of creating the corresponding model given net_name.
+                                        # for globals() see link: https://thepythonguru.com/python-builtin-functions/globals/
             print()
