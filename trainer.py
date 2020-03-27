@@ -67,11 +67,12 @@ def main():
     args = parser.parse_args()
 
 
-    # Check the save_dir exists or not
+    # Create save_dir if it does not exist
     if not os.path.exists(args.save_dir):
         os.makedirs(args.save_dir)
  
     model = torch.nn.DataParallel(resnet.__dict__[args.arch]()) # get the model from resnet module based on specified architecture
+    #DataParallel allows multiple GPUs to be utilized
     model.cuda() #put model on GPU
 
     # optionally resume from a checkpoint
@@ -114,6 +115,7 @@ def main():
     # define loss function (criterion) and optimizer
     criterion = nn.CrossEntropyLoss().cuda()
 
+    #use half-precision if specified
     if args.half:
         model.half()
         criterion.half()
