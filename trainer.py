@@ -181,8 +181,10 @@ def main():
     
     train_total_end = time.time()
     train_total_elapsed = train_total_end - train_total_start
+    hours, minutes, seconds = seconds_to_hour_minute_second(train_total_elapsed)
     print('\nModel training finished.')
-    print('Time: {:.3f} seconds.\tBest Accuracy: {:.3f}'.format(train_total_elapsed, best_prec1))
+    print('Time: {:.3f} seconds. ( {} hours {} minutes {:.3f} seconds)'.format(train_total_elapsed, hours, minutes, seconds))
+    print('Best Accuracy: {:.3f}'.format(best_prec1))
 
 def check_dir_exist_and_create(path):
     ''' 
@@ -332,6 +334,17 @@ def save_checkpoint(state, is_best, filename='checkpoint.pth.tar'):
     # the parameter is_best does not seem to be used?
     torch.save(state, filename)
 
+def seconds_to_hour_minute_second(seconds):
+    ''' 
+    converts seconds into hour, minute, and seconds
+    outputs tuple hour, minute, seconds
+    '''
+    remainder_seconds = seconds % 60
+    total_minutes = (seconds - remainder_seconds) / 60
+    remainder_minutes = total_minutes % 60
+    total_hours = (total_minutes - remainder_minutes) / 60
+    return total_hours, remainder_minutes, remainder_seconds
+    
 class AverageMeter(object):
     """Computes and stores the average and current value"""
     def __init__(self):

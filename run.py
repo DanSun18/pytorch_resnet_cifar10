@@ -24,8 +24,8 @@ def runTrainer(models):
         cmd = cmd + ' --arch=' + model 
         cmd = cmd + ' --save-dir=save_' + model 
         cmd = cmd + ' |& tee -a ' + model + '.log'
-    print('Running trainer for ' + model + ':\n', cmd)
-    os.system(cmd)
+        print('Running trainer for ' + model + ':\n', cmd)
+        os.system(cmd)
     return None
 
 parser = createArgParser()
