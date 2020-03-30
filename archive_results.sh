@@ -1,3 +1,6 @@
+# accepts experiment id as argument
+# moves current experimental results to folder run_* under experiments folder
+
 exp_id=$1
 archive_dir="experiments/run_${exp_id}"
 
