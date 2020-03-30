@@ -145,21 +145,22 @@ def main():
     for epoch in range(args.start_epoch, args.epochs): # train for one epoch
 
         
-        print('Epoch {}: current lr {:.5e}'.format(epoch, optimizer.param_groups[0]['lr'])) #prints learning rate at the start of the epoch
+        print('\nEpoch {}'.format(epoch)) #prints empty line before a new epoch
+        print('Learning rate {:.5e}'.format(optimizer.param_groups[0]['lr']))
         
         train_epoch_start = time.time()
         avg_loss, avg_prec = train(train_loader, model, criterion, optimizer, epoch)
         train_epoch_end = time.time()
         train_epoch_elpased = train_epoch_end - train_epoch_start
-        print("Epoch {}: training took {:.3f} seconds".format(epoch, train_epoch_elpased))
-        print("Loss: {:.4f}\tAccuracy: {:.3f}".format(avg_loss, avg_prec))
+        print("[Training] Time: {:.3f} seconds".format(train_epoch_elpased))
+        print("[Training] Loss: {:.4f}\tAccuracy: {:.3f}".format(avg_loss, avg_prec))
         
         # register epoch at scheduler
         lr_scheduler.step()
 
         # evaluate on validation set
         prec1 = validate(val_loader, model, criterion)
-        print('Test Accuracy: {:.3f}'.format(prec1))
+        print('[Test] Accuracy: {:.3f}'.format(prec1))
         
         # remember best prec@1 and save checkpoint
         is_best = prec1 > best_prec1
@@ -180,7 +181,8 @@ def main():
     
     train_total_end = time.time()
     train_total_elapsed = train_total_end - train_total_start
-    print('Model training finished. Time: {:.3f}'.format(train_total_elapsed))
+    print('\nModel training finished.')
+    print('Time: {:.3f} seconds.\tBest Accuracy: {:.3f}'.format(train_total_elapsed, best_prec1))
 
 def check_dir_exist_and_create(path):
     ''' 
