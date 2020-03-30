@@ -39,7 +39,7 @@ if 'all' in args.models:
 # logging information
 print("The program will run trainer for {}".format(', '.join(args.models)))
 if args.shutdown:
-    print("IMPORTANT: Machine will be shutdown after program finishes execution")
+    print("IMPORTANT: Machine will SHUTDOWN after program execution")
 
 runTrainer(args.models)
 
