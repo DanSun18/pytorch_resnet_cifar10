@@ -1,0 +1,1207 @@
+Creating directory at save_resnet32
+Files already downloaded and verified
+Starting training from epoch 0 to 200
+
+Epoch 0
+Learning rate 1.00000e-01
+[Training] Time: 35.995 seconds
+[Training] Loss: 1.7696	Accuracy: 36.446
+[Test] Accuracy: 46.460
+
+Epoch 1
+Learning rate 1.00000e-01
+[Training] Time: 35.483 seconds
+[Training] Loss: 1.2129	Accuracy: 56.580
+[Test] Accuracy: 61.190
+
+Epoch 2
+Learning rate 1.00000e-01
+[Training] Time: 35.511 seconds
+[Training] Loss: 0.9301	Accuracy: 66.848
+[Test] Accuracy: 67.550
+
+Epoch 3
+Learning rate 1.00000e-01
+[Training] Time: 35.559 seconds
+[Training] Loss: 0.7632	Accuracy: 73.318
+[Test] Accuracy: 69.490
+
+Epoch 4
+Learning rate 1.00000e-01
+[Training] Time: 35.523 seconds
+[Training] Loss: 0.6767	Accuracy: 76.368
+[Test] Accuracy: 73.360
+
+Epoch 5
+Learning rate 1.00000e-01
+[Training] Time: 35.528 seconds
+[Training] Loss: 0.6094	Accuracy: 78.762
+[Test] Accuracy: 73.190
+
+Epoch 6
+Learning rate 1.00000e-01
+[Training] Time: 35.472 seconds
+[Training] Loss: 0.5569	Accuracy: 80.810
+[Test] Accuracy: 74.000
+
+Epoch 7
+Learning rate 1.00000e-01
+[Training] Time: 35.469 seconds
+[Training] Loss: 0.5223	Accuracy: 82.058
+[Test] Accuracy: 79.620
+
+Epoch 8
+Learning rate 1.00000e-01
+[Training] Time: 35.494 seconds
+[Training] Loss: 0.4919	Accuracy: 82.942
+[Test] Accuracy: 80.650
+
+Epoch 9
+Learning rate 1.00000e-01
+[Training] Time: 35.479 seconds
+[Training] Loss: 0.4641	Accuracy: 84.074
+[Test] Accuracy: 80.060
+
+Epoch 10
+Learning rate 1.00000e-01
+[Training] Time: 35.479 seconds
+[Training] Loss: 0.4531	Accuracy: 84.182
+[Test] Accuracy: 82.220
+
+Epoch 11
+Learning rate 1.00000e-01
+[Training] Time: 35.547 seconds
+[Training] Loss: 0.4265	Accuracy: 85.044
+[Test] Accuracy: 79.670
+
+Epoch 12
+Learning rate 1.00000e-01
+[Training] Time: 35.493 seconds
+[Training] Loss: 0.4120	Accuracy: 85.696
+[Test] Accuracy: 81.270
+
+Epoch 13
+Learning rate 1.00000e-01
+[Training] Time: 35.462 seconds
+[Training] Loss: 0.3971	Accuracy: 86.414
+[Test] Accuracy: 82.100
+
+Epoch 14
+Learning rate 1.00000e-01
+[Training] Time: 35.491 seconds
+[Training] Loss: 0.3883	Accuracy: 86.694
+[Test] Accuracy: 82.940
+
+Epoch 15
+Learning rate 1.00000e-01
+[Training] Time: 35.531 seconds
+[Training] Loss: 0.3709	Accuracy: 87.170
+[Test] Accuracy: 79.850
+
+Epoch 16
+Learning rate 1.00000e-01
+[Training] Time: 35.498 seconds
+[Training] Loss: 0.3633	Accuracy: 87.394
+[Test] Accuracy: 83.060
+
+Epoch 17
+Learning rate 1.00000e-01
+[Training] Time: 35.473 seconds
+[Training] Loss: 0.3574	Accuracy: 87.636
+[Test] Accuracy: 84.340
+
+Epoch 18
+Learning rate 1.00000e-01
+[Training] Time: 35.547 seconds
+[Training] Loss: 0.3444	Accuracy: 88.068
+[Test] Accuracy: 81.310
+
+Epoch 19
+Learning rate 1.00000e-01
+[Training] Time: 35.495 seconds
+[Training] Loss: 0.3372	Accuracy: 88.346
+[Test] Accuracy: 84.110
+
+Epoch 20
+Learning rate 1.00000e-01
+[Training] Time: 35.491 seconds
+[Training] Loss: 0.3326	Accuracy: 88.512
+[Test] Accuracy: 80.130
+
+Epoch 21
+Learning rate 1.00000e-01
+[Training] Time: 35.542 seconds
+[Training] Loss: 0.3232	Accuracy: 88.878
+[Test] Accuracy: 85.810
+
+Epoch 22
+Learning rate 1.00000e-01
+[Training] Time: 35.492 seconds
+[Training] Loss: 0.3142	Accuracy: 89.024
+[Test] Accuracy: 79.300
+
+Epoch 23
+Learning rate 1.00000e-01
+[Training] Time: 35.493 seconds
+[Training] Loss: 0.3093	Accuracy: 89.424
+[Test] Accuracy: 85.170
+
+Epoch 24
+Learning rate 1.00000e-01
+[Training] Time: 35.520 seconds
+[Training] Loss: 0.3035	Accuracy: 89.458
+[Test] Accuracy: 85.150
+
+Epoch 25
+Learning rate 1.00000e-01
+[Training] Time: 35.535 seconds
+[Training] Loss: 0.3053	Accuracy: 89.462
+[Test] Accuracy: 85.580
+
+Epoch 26
+Learning rate 1.00000e-01
+[Training] Time: 35.468 seconds
+[Training] Loss: 0.2957	Accuracy: 89.842
+[Test] Accuracy: 84.930
+
+Epoch 27
+Learning rate 1.00000e-01
+[Training] Time: 35.522 seconds
+[Training] Loss: 0.2872	Accuracy: 90.014
+[Test] Accuracy: 84.310
+
+Epoch 28
+Learning rate 1.00000e-01
+[Training] Time: 35.516 seconds
+[Training] Loss: 0.2867	Accuracy: 90.030
+[Test] Accuracy: 82.870
+
+Epoch 29
+Learning rate 1.00000e-01
+[Training] Time: 35.501 seconds
+[Training] Loss: 0.2819	Accuracy: 90.130
+[Test] Accuracy: 85.250
+
+Epoch 30
+Learning rate 1.00000e-01
+[Training] Time: 35.471 seconds
+[Training] Loss: 0.2805	Accuracy: 90.144
+[Test] Accuracy: 84.190
+
+Epoch 31
+Learning rate 1.00000e-01
+[Training] Time: 35.529 seconds
+[Training] Loss: 0.2752	Accuracy: 90.342
+[Test] Accuracy: 87.280
+
+Epoch 32
+Learning rate 1.00000e-01
+[Training] Time: 35.456 seconds
+[Training] Loss: 0.2744	Accuracy: 90.294
+[Test] Accuracy: 83.570
+
+Epoch 33
+Learning rate 1.00000e-01
+[Training] Time: 35.384 seconds
+[Training] Loss: 0.2710	Accuracy: 90.462
+[Test] Accuracy: 84.760
+
+Epoch 34
+Learning rate 1.00000e-01
+[Training] Time: 35.460 seconds
+[Training] Loss: 0.2604	Accuracy: 90.874
+[Test] Accuracy: 84.630
+
+Epoch 35
+Learning rate 1.00000e-01
+[Training] Time: 35.474 seconds
+[Training] Loss: 0.2544	Accuracy: 91.046
+[Test] Accuracy: 83.620
+
+Epoch 36
+Learning rate 1.00000e-01
+[Training] Time: 35.474 seconds
+[Training] Loss: 0.2600	Accuracy: 90.880
+[Test] Accuracy: 83.600
+
+Epoch 37
+Learning rate 1.00000e-01
+[Training] Time: 35.480 seconds
+[Training] Loss: 0.2550	Accuracy: 91.200
+[Test] Accuracy: 86.010
+
+Epoch 38
+Learning rate 1.00000e-01
+[Training] Time: 35.473 seconds
+[Training] Loss: 0.2529	Accuracy: 91.142
+[Test] Accuracy: 85.590
+
+Epoch 39
+Learning rate 1.00000e-01
+[Training] Time: 35.498 seconds
+[Training] Loss: 0.2459	Accuracy: 91.452
+[Test] Accuracy: 84.340
+
+Epoch 40
+Learning rate 1.00000e-01
+[Training] Time: 35.498 seconds
+[Training] Loss: 0.2449	Accuracy: 91.478
+[Test] Accuracy: 86.270
+
+Epoch 41
+Learning rate 1.00000e-01
+[Training] Time: 35.520 seconds
+[Training] Loss: 0.2456	Accuracy: 91.274
+[Test] Accuracy: 85.390
+
+Epoch 42
+Learning rate 1.00000e-01
+[Training] Time: 35.487 seconds
+[Training] Loss: 0.2429	Accuracy: 91.434
+[Test] Accuracy: 87.280
+
+Epoch 43
+Learning rate 1.00000e-01
+[Training] Time: 35.467 seconds
+[Training] Loss: 0.2402	Accuracy: 91.546
+[Test] Accuracy: 85.240
+
+Epoch 44
+Learning rate 1.00000e-01
+[Training] Time: 35.422 seconds
+[Training] Loss: 0.2383	Accuracy: 91.706
+[Test] Accuracy: 84.500
+
+Epoch 45
+Learning rate 1.00000e-01
+[Training] Time: 35.429 seconds
+[Training] Loss: 0.2375	Accuracy: 91.784
+[Test] Accuracy: 86.410
+
+Epoch 46
+Learning rate 1.00000e-01
+[Training] Time: 35.397 seconds
+[Training] Loss: 0.2357	Accuracy: 91.654
+[Test] Accuracy: 85.970
+
+Epoch 47
+Learning rate 1.00000e-01
+[Training] Time: 35.487 seconds
+[Training] Loss: 0.2321	Accuracy: 91.894
+[Test] Accuracy: 87.630
+
+Epoch 48
+Learning rate 1.00000e-01
+[Training] Time: 35.445 seconds
+[Training] Loss: 0.2332	Accuracy: 91.728
+[Test] Accuracy: 85.990
+
+Epoch 49
+Learning rate 1.00000e-01
+[Training] Time: 35.440 seconds
+[Training] Loss: 0.2287	Accuracy: 91.986
+[Test] Accuracy: 85.970
+
+Epoch 50
+Learning rate 1.00000e-01
+[Training] Time: 35.436 seconds
+[Training] Loss: 0.2241	Accuracy: 92.056
+[Test] Accuracy: 86.090
+
+Epoch 51
+Learning rate 1.00000e-01
+[Training] Time: 35.500 seconds
+[Training] Loss: 0.2239	Accuracy: 92.148
+[Test] Accuracy: 86.180
+
+Epoch 52
+Learning rate 1.00000e-01
+[Training] Time: 35.486 seconds
+[Training] Loss: 0.2247	Accuracy: 92.078
+[Test] Accuracy: 87.420
+
+Epoch 53
+Learning rate 1.00000e-01
+[Training] Time: 35.469 seconds
+[Training] Loss: 0.2200	Accuracy: 92.146
+[Test] Accuracy: 88.160
+
+Epoch 54
+Learning rate 1.00000e-01
+[Training] Time: 35.511 seconds
+[Training] Loss: 0.2235	Accuracy: 92.066
+[Test] Accuracy: 81.530
+
+Epoch 55
+Learning rate 1.00000e-01
+[Training] Time: 35.458 seconds
+[Training] Loss: 0.2203	Accuracy: 92.336
+[Test] Accuracy: 85.020
+
+Epoch 56
+Learning rate 1.00000e-01
+[Training] Time: 35.521 seconds
+[Training] Loss: 0.2287	Accuracy: 92.090
+[Test] Accuracy: 83.850
+
+Epoch 57
+Learning rate 1.00000e-01
+[Training] Time: 35.396 seconds
+[Training] Loss: 0.2168	Accuracy: 92.460
+[Test] Accuracy: 86.420
+
+Epoch 58
+Learning rate 1.00000e-01
+[Training] Time: 35.421 seconds
+[Training] Loss: 0.2133	Accuracy: 92.486
+[Test] Accuracy: 86.960
+
+Epoch 59
+Learning rate 1.00000e-01
+[Training] Time: 35.391 seconds
+[Training] Loss: 0.2152	Accuracy: 92.526
+[Test] Accuracy: 87.130
+
+Epoch 60
+Learning rate 1.00000e-01
+[Training] Time: 35.466 seconds
+[Training] Loss: 0.2157	Accuracy: 92.492
+[Test] Accuracy: 86.650
+
+Epoch 61
+Learning rate 1.00000e-01
+[Training] Time: 35.491 seconds
+[Training] Loss: 0.2079	Accuracy: 92.744
+[Test] Accuracy: 85.670
+
+Epoch 62
+Learning rate 1.00000e-01
+[Training] Time: 35.434 seconds
+[Training] Loss: 0.2066	Accuracy: 92.644
+[Test] Accuracy: 84.470
+
+Epoch 63
+Learning rate 1.00000e-01
+[Training] Time: 35.435 seconds
+[Training] Loss: 0.2104	Accuracy: 92.576
+[Test] Accuracy: 88.210
+
+Epoch 64
+Learning rate 1.00000e-01
+[Training] Time: 35.480 seconds
+[Training] Loss: 0.2070	Accuracy: 92.730
+[Test] Accuracy: 83.860
+
+Epoch 65
+Learning rate 1.00000e-01
+[Training] Time: 35.451 seconds
+[Training] Loss: 0.2111	Accuracy: 92.494
+[Test] Accuracy: 87.200
+
+Epoch 66
+Learning rate 1.00000e-01
+[Training] Time: 35.429 seconds
+[Training] Loss: 0.2082	Accuracy: 92.718
+[Test] Accuracy: 87.370
+
+Epoch 67
+Learning rate 1.00000e-01
+[Training] Time: 35.444 seconds
+[Training] Loss: 0.2074	Accuracy: 92.610
+[Test] Accuracy: 87.040
+
+Epoch 68
+Learning rate 1.00000e-01
+[Training] Time: 35.433 seconds
+[Training] Loss: 0.2036	Accuracy: 92.812
+[Test] Accuracy: 87.560
+
+Epoch 69
+Learning rate 1.00000e-01
+[Training] Time: 35.406 seconds
+[Training] Loss: 0.2063	Accuracy: 92.742
+[Test] Accuracy: 86.930
+
+Epoch 70
+Learning rate 1.00000e-01
+[Training] Time: 35.391 seconds
+[Training] Loss: 0.2023	Accuracy: 92.864
+[Test] Accuracy: 86.430
+
+Epoch 71
+Learning rate 1.00000e-01
+[Training] Time: 35.480 seconds
+[Training] Loss: 0.2067	Accuracy: 92.852
+[Test] Accuracy: 85.890
+
+Epoch 72
+Learning rate 1.00000e-01
+[Training] Time: 35.443 seconds
+[Training] Loss: 0.2057	Accuracy: 92.838
+[Test] Accuracy: 88.530
+
+Epoch 73
+Learning rate 1.00000e-01
+[Training] Time: 35.479 seconds
+[Training] Loss: 0.2019	Accuracy: 92.856
+[Test] Accuracy: 86.430
+
+Epoch 74
+Learning rate 1.00000e-01
+[Training] Time: 35.452 seconds
+[Training] Loss: 0.1917	Accuracy: 93.300
+[Test] Accuracy: 87.250
+
+Epoch 75
+Learning rate 1.00000e-01
+[Training] Time: 35.499 seconds
+[Training] Loss: 0.2020	Accuracy: 92.934
+[Test] Accuracy: 87.320
+
+Epoch 76
+Learning rate 1.00000e-01
+[Training] Time: 35.440 seconds
+[Training] Loss: 0.2005	Accuracy: 92.940
+[Test] Accuracy: 86.370
+
+Epoch 77
+Learning rate 1.00000e-01
+[Training] Time: 35.444 seconds
+[Training] Loss: 0.1956	Accuracy: 93.076
+[Test] Accuracy: 87.100
+
+Epoch 78
+Learning rate 1.00000e-01
+[Training] Time: 35.423 seconds
+[Training] Loss: 0.1976	Accuracy: 93.042
+[Test] Accuracy: 85.860
+
+Epoch 79
+Learning rate 1.00000e-01
+[Training] Time: 35.404 seconds
+[Training] Loss: 0.1989	Accuracy: 92.908
+[Test] Accuracy: 88.230
+
+Epoch 80
+Learning rate 1.00000e-01
+[Training] Time: 35.462 seconds
+[Training] Loss: 0.1911	Accuracy: 93.330
+[Test] Accuracy: 86.800
+
+Epoch 81
+Learning rate 1.00000e-01
+[Training] Time: 35.487 seconds
+[Training] Loss: 0.1977	Accuracy: 93.130
+[Test] Accuracy: 87.940
+
+Epoch 82
+Learning rate 1.00000e-01
+[Training] Time: 35.413 seconds
+[Training] Loss: 0.1998	Accuracy: 92.938
+[Test] Accuracy: 84.930
+
+Epoch 83
+Learning rate 1.00000e-01
+[Training] Time: 35.412 seconds
+[Training] Loss: 0.1889	Accuracy: 93.410
+[Test] Accuracy: 85.380
+
+Epoch 84
+Learning rate 1.00000e-01
+[Training] Time: 35.425 seconds
+[Training] Loss: 0.1907	Accuracy: 93.298
+[Test] Accuracy: 87.740
+
+Epoch 85
+Learning rate 1.00000e-01
+[Training] Time: 35.380 seconds
+[Training] Loss: 0.1894	Accuracy: 93.314
+[Test] Accuracy: 87.090
+
+Epoch 86
+Learning rate 1.00000e-01
+[Training] Time: 35.454 seconds
+[Training] Loss: 0.1895	Accuracy: 93.482
+[Test] Accuracy: 85.160
+
+Epoch 87
+Learning rate 1.00000e-01
+[Training] Time: 35.501 seconds
+[Training] Loss: 0.1854	Accuracy: 93.476
+[Test] Accuracy: 87.460
+
+Epoch 88
+Learning rate 1.00000e-01
+[Training] Time: 35.418 seconds
+[Training] Loss: 0.1893	Accuracy: 93.326
+[Test] Accuracy: 87.060
+
+Epoch 89
+Learning rate 1.00000e-01
+[Training] Time: 35.428 seconds
+[Training] Loss: 0.1926	Accuracy: 93.262
+[Test] Accuracy: 85.330
+
+Epoch 90
+Learning rate 1.00000e-01
+[Training] Time: 35.428 seconds
+[Training] Loss: 0.1857	Accuracy: 93.552
+[Test] Accuracy: 88.200
+
+Epoch 91
+Learning rate 1.00000e-01
+[Training] Time: 35.532 seconds
+[Training] Loss: 0.1885	Accuracy: 93.352
+[Test] Accuracy: 87.890
+
+Epoch 92
+Learning rate 1.00000e-01
+[Training] Time: 35.451 seconds
+[Training] Loss: 0.1903	Accuracy: 93.228
+[Test] Accuracy: 85.780
+
+Epoch 93
+Learning rate 1.00000e-01
+[Training] Time: 35.494 seconds
+[Training] Loss: 0.1869	Accuracy: 93.476
+[Test] Accuracy: 88.540
+
+Epoch 94
+Learning rate 1.00000e-01
+[Training] Time: 35.450 seconds
+[Training] Loss: 0.1874	Accuracy: 93.276
+[Test] Accuracy: 86.470
+
+Epoch 95
+Learning rate 1.00000e-01
+[Training] Time: 35.467 seconds
+[Training] Loss: 0.1831	Accuracy: 93.584
+[Test] Accuracy: 85.100
+
+Epoch 96
+Learning rate 1.00000e-01
+[Training] Time: 35.499 seconds
+[Training] Loss: 0.1840	Accuracy: 93.490
+[Test] Accuracy: 88.380
+
+Epoch 97
+Learning rate 1.00000e-01
+[Training] Time: 35.472 seconds
+[Training] Loss: 0.1879	Accuracy: 93.408
+[Test] Accuracy: 87.410
+
+Epoch 98
+Learning rate 1.00000e-01
+[Training] Time: 35.441 seconds
+[Training] Loss: 0.1837	Accuracy: 93.534
+[Test] Accuracy: 86.070
+
+Epoch 99
+Learning rate 1.00000e-01
+[Training] Time: 35.490 seconds
+[Training] Loss: 0.1880	Accuracy: 93.390
+[Test] Accuracy: 87.420
+
+Epoch 100
+Learning rate 1.00000e-02
+[Training] Time: 35.498 seconds
+[Training] Loss: 0.1047	Accuracy: 96.500
+[Test] Accuracy: 92.000
+
+Epoch 101
+Learning rate 1.00000e-02
+[Training] Time: 35.484 seconds
+[Training] Loss: 0.0742	Accuracy: 97.452
+[Test] Accuracy: 92.300
+
+Epoch 102
+Learning rate 1.00000e-02
+[Training] Time: 35.496 seconds
+[Training] Loss: 0.0644	Accuracy: 97.942
+[Test] Accuracy: 92.270
+
+Epoch 103
+Learning rate 1.00000e-02
+[Training] Time: 35.481 seconds
+[Training] Loss: 0.0575	Accuracy: 98.120
+[Test] Accuracy: 92.510
+
+Epoch 104
+Learning rate 1.00000e-02
+[Training] Time: 35.444 seconds
+[Training] Loss: 0.0524	Accuracy: 98.366
+[Test] Accuracy: 92.590
+
+Epoch 105
+Learning rate 1.00000e-02
+[Training] Time: 35.420 seconds
+[Training] Loss: 0.0496	Accuracy: 98.306
+[Test] Accuracy: 92.440
+
+Epoch 106
+Learning rate 1.00000e-02
+[Training] Time: 35.430 seconds
+[Training] Loss: 0.0464	Accuracy: 98.536
+[Test] Accuracy: 92.250
+
+Epoch 107
+Learning rate 1.00000e-02
+[Training] Time: 35.416 seconds
+[Training] Loss: 0.0429	Accuracy: 98.644
+[Test] Accuracy: 92.350
+
+Epoch 108
+Learning rate 1.00000e-02
+[Training] Time: 35.412 seconds
+[Training] Loss: 0.0394	Accuracy: 98.774
+[Test] Accuracy: 92.500
+
+Epoch 109
+Learning rate 1.00000e-02
+[Training] Time: 35.439 seconds
+[Training] Loss: 0.0368	Accuracy: 98.820
+[Test] Accuracy: 92.420
+
+Epoch 110
+Learning rate 1.00000e-02
+[Training] Time: 35.477 seconds
+[Training] Loss: 0.0363	Accuracy: 98.888
+[Test] Accuracy: 92.320
+
+Epoch 111
+Learning rate 1.00000e-02
+[Training] Time: 35.481 seconds
+[Training] Loss: 0.0347	Accuracy: 98.898
+[Test] Accuracy: 92.520
+
+Epoch 112
+Learning rate 1.00000e-02
+[Training] Time: 35.489 seconds
+[Training] Loss: 0.0315	Accuracy: 99.044
+[Test] Accuracy: 92.330
+
+Epoch 113
+Learning rate 1.00000e-02
+[Training] Time: 35.452 seconds
+[Training] Loss: 0.0301	Accuracy: 99.082
+[Test] Accuracy: 92.380
+
+Epoch 114
+Learning rate 1.00000e-02
+[Training] Time: 35.432 seconds
+[Training] Loss: 0.0293	Accuracy: 99.106
+[Test] Accuracy: 92.370
+
+Epoch 115
+Learning rate 1.00000e-02
+[Training] Time: 35.398 seconds
+[Training] Loss: 0.0292	Accuracy: 99.100
+[Test] Accuracy: 92.290
+
+Epoch 116
+Learning rate 1.00000e-02
+[Training] Time: 35.485 seconds
+[Training] Loss: 0.0278	Accuracy: 99.196
+[Test] Accuracy: 92.470
+
+Epoch 117
+Learning rate 1.00000e-02
+[Training] Time: 35.436 seconds
+[Training] Loss: 0.0269	Accuracy: 99.144
+[Test] Accuracy: 92.380
+
+Epoch 118
+Learning rate 1.00000e-02
+[Training] Time: 35.460 seconds
+[Training] Loss: 0.0268	Accuracy: 99.172
+[Test] Accuracy: 92.300
+
+Epoch 119
+Learning rate 1.00000e-02
+[Training] Time: 35.518 seconds
+[Training] Loss: 0.0245	Accuracy: 99.290
+[Test] Accuracy: 92.390
+
+Epoch 120
+Learning rate 1.00000e-02
+[Training] Time: 35.469 seconds
+[Training] Loss: 0.0231	Accuracy: 99.280
+[Test] Accuracy: 92.420
+
+Epoch 121
+Learning rate 1.00000e-02
+[Training] Time: 35.477 seconds
+[Training] Loss: 0.0235	Accuracy: 99.282
+[Test] Accuracy: 92.530
+
+Epoch 122
+Learning rate 1.00000e-02
+[Training] Time: 35.442 seconds
+[Training] Loss: 0.0217	Accuracy: 99.370
+[Test] Accuracy: 92.220
+
+Epoch 123
+Learning rate 1.00000e-02
+[Training] Time: 35.488 seconds
+[Training] Loss: 0.0223	Accuracy: 99.336
+[Test] Accuracy: 92.160
+
+Epoch 124
+Learning rate 1.00000e-02
+[Training] Time: 35.485 seconds
+[Training] Loss: 0.0204	Accuracy: 99.408
+[Test] Accuracy: 92.320
+
+Epoch 125
+Learning rate 1.00000e-02
+[Training] Time: 35.494 seconds
+[Training] Loss: 0.0200	Accuracy: 99.382
+[Test] Accuracy: 92.430
+
+Epoch 126
+Learning rate 1.00000e-02
+[Training] Time: 35.422 seconds
+[Training] Loss: 0.0189	Accuracy: 99.454
+[Test] Accuracy: 92.400
+
+Epoch 127
+Learning rate 1.00000e-02
+[Training] Time: 35.419 seconds
+[Training] Loss: 0.0185	Accuracy: 99.494
+[Test] Accuracy: 92.440
+
+Epoch 128
+Learning rate 1.00000e-02
+[Training] Time: 35.438 seconds
+[Training] Loss: 0.0192	Accuracy: 99.406
+[Test] Accuracy: 92.410
+
+Epoch 129
+Learning rate 1.00000e-02
+[Training] Time: 35.464 seconds
+[Training] Loss: 0.0178	Accuracy: 99.454
+[Test] Accuracy: 92.510
+
+Epoch 130
+Learning rate 1.00000e-02
+[Training] Time: 35.473 seconds
+[Training] Loss: 0.0181	Accuracy: 99.452
+[Test] Accuracy: 92.460
+
+Epoch 131
+Learning rate 1.00000e-02
+[Training] Time: 35.418 seconds
+[Training] Loss: 0.0166	Accuracy: 99.514
+[Test] Accuracy: 92.280
+
+Epoch 132
+Learning rate 1.00000e-02
+[Training] Time: 35.394 seconds
+[Training] Loss: 0.0173	Accuracy: 99.482
+[Test] Accuracy: 92.430
+
+Epoch 133
+Learning rate 1.00000e-02
+[Training] Time: 35.425 seconds
+[Training] Loss: 0.0160	Accuracy: 99.530
+[Test] Accuracy: 92.470
+
+Epoch 134
+Learning rate 1.00000e-02
+[Training] Time: 35.451 seconds
+[Training] Loss: 0.0159	Accuracy: 99.558
+[Test] Accuracy: 92.560
+
+Epoch 135
+Learning rate 1.00000e-02
+[Training] Time: 35.477 seconds
+[Training] Loss: 0.0150	Accuracy: 99.560
+[Test] Accuracy: 92.320
+
+Epoch 136
+Learning rate 1.00000e-02
+[Training] Time: 35.475 seconds
+[Training] Loss: 0.0156	Accuracy: 99.560
+[Test] Accuracy: 92.240
+
+Epoch 137
+Learning rate 1.00000e-02
+[Training] Time: 35.466 seconds
+[Training] Loss: 0.0151	Accuracy: 99.548
+[Test] Accuracy: 92.420
+
+Epoch 138
+Learning rate 1.00000e-02
+[Training] Time: 35.482 seconds
+[Training] Loss: 0.0151	Accuracy: 99.566
+[Test] Accuracy: 92.530
+
+Epoch 139
+Learning rate 1.00000e-02
+[Training] Time: 35.466 seconds
+[Training] Loss: 0.0152	Accuracy: 99.548
+[Test] Accuracy: 92.320
+
+Epoch 140
+Learning rate 1.00000e-02
+[Training] Time: 35.425 seconds
+[Training] Loss: 0.0151	Accuracy: 99.580
+[Test] Accuracy: 92.190
+
+Epoch 141
+Learning rate 1.00000e-02
+[Training] Time: 35.429 seconds
+[Training] Loss: 0.0142	Accuracy: 99.612
+[Test] Accuracy: 92.360
+
+Epoch 142
+Learning rate 1.00000e-02
+[Training] Time: 35.530 seconds
+[Training] Loss: 0.0140	Accuracy: 99.614
+[Test] Accuracy: 92.280
+
+Epoch 143
+Learning rate 1.00000e-02
+[Training] Time: 35.482 seconds
+[Training] Loss: 0.0140	Accuracy: 99.630
+[Test] Accuracy: 92.390
+
+Epoch 144
+Learning rate 1.00000e-02
+[Training] Time: 35.421 seconds
+[Training] Loss: 0.0132	Accuracy: 99.646
+[Test] Accuracy: 92.200
+
+Epoch 145
+Learning rate 1.00000e-02
+[Training] Time: 35.443 seconds
+[Training] Loss: 0.0128	Accuracy: 99.644
+[Test] Accuracy: 92.580
+
+Epoch 146
+Learning rate 1.00000e-02
+[Training] Time: 35.484 seconds
+[Training] Loss: 0.0133	Accuracy: 99.602
+[Test] Accuracy: 92.320
+
+Epoch 147
+Learning rate 1.00000e-02
+[Training] Time: 35.472 seconds
+[Training] Loss: 0.0136	Accuracy: 99.640
+[Test] Accuracy: 92.440
+
+Epoch 148
+Learning rate 1.00000e-02
+[Training] Time: 35.419 seconds
+[Training] Loss: 0.0118	Accuracy: 99.682
+[Test] Accuracy: 92.450
+
+Epoch 149
+Learning rate 1.00000e-02
+[Training] Time: 35.503 seconds
+[Training] Loss: 0.0120	Accuracy: 99.702
+[Test] Accuracy: 92.380
+
+Epoch 150
+Learning rate 1.00000e-03
+[Training] Time: 35.443 seconds
+[Training] Loss: 0.0105	Accuracy: 99.752
+[Test] Accuracy: 92.540
+
+Epoch 151
+Learning rate 1.00000e-03
+[Training] Time: 35.469 seconds
+[Training] Loss: 0.0100	Accuracy: 99.740
+[Test] Accuracy: 92.560
+
+Epoch 152
+Learning rate 1.00000e-03
+[Training] Time: 35.487 seconds
+[Training] Loss: 0.0094	Accuracy: 99.752
+[Test] Accuracy: 92.520
+
+Epoch 153
+Learning rate 1.00000e-03
+[Training] Time: 35.461 seconds
+[Training] Loss: 0.0090	Accuracy: 99.792
+[Test] Accuracy: 92.530
+
+Epoch 154
+Learning rate 1.00000e-03
+[Training] Time: 35.482 seconds
+[Training] Loss: 0.0084	Accuracy: 99.814
+[Test] Accuracy: 92.540
+
+Epoch 155
+Learning rate 1.00000e-03
+[Training] Time: 35.425 seconds
+[Training] Loss: 0.0084	Accuracy: 99.796
+[Test] Accuracy: 92.420
+
+Epoch 156
+Learning rate 1.00000e-03
+[Training] Time: 35.444 seconds
+[Training] Loss: 0.0087	Accuracy: 99.788
+[Test] Accuracy: 92.530
+
+Epoch 157
+Learning rate 1.00000e-03
+[Training] Time: 35.477 seconds
+[Training] Loss: 0.0078	Accuracy: 99.844
+[Test] Accuracy: 92.530
+
+Epoch 158
+Learning rate 1.00000e-03
+[Training] Time: 35.477 seconds
+[Training] Loss: 0.0081	Accuracy: 99.844
+[Test] Accuracy: 92.680
+
+Epoch 159
+Learning rate 1.00000e-03
+[Training] Time: 35.480 seconds
+[Training] Loss: 0.0081	Accuracy: 99.806
+[Test] Accuracy: 92.600
+
+Epoch 160
+Learning rate 1.00000e-03
+[Training] Time: 35.455 seconds
+[Training] Loss: 0.0082	Accuracy: 99.818
+[Test] Accuracy: 92.660
+
+Epoch 161
+Learning rate 1.00000e-03
+[Training] Time: 35.478 seconds
+[Training] Loss: 0.0081	Accuracy: 99.818
+[Test] Accuracy: 92.620
+
+Epoch 162
+Learning rate 1.00000e-03
+[Training] Time: 35.462 seconds
+[Training] Loss: 0.0078	Accuracy: 99.814
+[Test] Accuracy: 92.640
+
+Epoch 163
+Learning rate 1.00000e-03
+[Training] Time: 35.510 seconds
+[Training] Loss: 0.0078	Accuracy: 99.826
+[Test] Accuracy: 92.690
+
+Epoch 164
+Learning rate 1.00000e-03
+[Training] Time: 35.425 seconds
+[Training] Loss: 0.0081	Accuracy: 99.822
+[Test] Accuracy: 92.650
+
+Epoch 165
+Learning rate 1.00000e-03
+[Training] Time: 35.494 seconds
+[Training] Loss: 0.0077	Accuracy: 99.822
+[Test] Accuracy: 92.540
+
+Epoch 166
+Learning rate 1.00000e-03
+[Training] Time: 35.525 seconds
+[Training] Loss: 0.0077	Accuracy: 99.854
+[Test] Accuracy: 92.680
+
+Epoch 167
+Learning rate 1.00000e-03
+[Training] Time: 35.536 seconds
+[Training] Loss: 0.0071	Accuracy: 99.874
+[Test] Accuracy: 92.530
+
+Epoch 168
+Learning rate 1.00000e-03
+[Training] Time: 35.506 seconds
+[Training] Loss: 0.0078	Accuracy: 99.824
+[Test] Accuracy: 92.570
+
+Epoch 169
+Learning rate 1.00000e-03
+[Training] Time: 35.516 seconds
+[Training] Loss: 0.0078	Accuracy: 99.834
+[Test] Accuracy: 92.560
+
+Epoch 170
+Learning rate 1.00000e-03
+[Training] Time: 35.551 seconds
+[Training] Loss: 0.0075	Accuracy: 99.816
+[Test] Accuracy: 92.580
+
+Epoch 171
+Learning rate 1.00000e-03
+[Training] Time: 35.510 seconds
+[Training] Loss: 0.0073	Accuracy: 99.838
+[Test] Accuracy: 92.520
+
+Epoch 172
+Learning rate 1.00000e-03
+[Training] Time: 35.549 seconds
+[Training] Loss: 0.0071	Accuracy: 99.862
+[Test] Accuracy: 92.570
+
+Epoch 173
+Learning rate 1.00000e-03
+[Training] Time: 35.532 seconds
+[Training] Loss: 0.0072	Accuracy: 99.872
+[Test] Accuracy: 92.540
+
+Epoch 174
+Learning rate 1.00000e-03
+[Training] Time: 35.536 seconds
+[Training] Loss: 0.0071	Accuracy: 99.868
+[Test] Accuracy: 92.560
+
+Epoch 175
+Learning rate 1.00000e-03
+[Training] Time: 35.514 seconds
+[Training] Loss: 0.0076	Accuracy: 99.846
+[Test] Accuracy: 92.630
+
+Epoch 176
+Learning rate 1.00000e-03
+[Training] Time: 35.490 seconds
+[Training] Loss: 0.0072	Accuracy: 99.842
+[Test] Accuracy: 92.600
+
+Epoch 177
+Learning rate 1.00000e-03
+[Training] Time: 35.496 seconds
+[Training] Loss: 0.0077	Accuracy: 99.834
+[Test] Accuracy: 92.520
+
+Epoch 178
+Learning rate 1.00000e-03
+[Training] Time: 35.539 seconds
+[Training] Loss: 0.0068	Accuracy: 99.870
+[Test] Accuracy: 92.750
+
+Epoch 179
+Learning rate 1.00000e-03
+[Training] Time: 35.537 seconds
+[Training] Loss: 0.0067	Accuracy: 99.880
+[Test] Accuracy: 92.540
+
+Epoch 180
+Learning rate 1.00000e-03
+[Training] Time: 35.503 seconds
+[Training] Loss: 0.0075	Accuracy: 99.846
+[Test] Accuracy: 92.670
+
+Epoch 181
+Learning rate 1.00000e-03
+[Training] Time: 35.532 seconds
+[Training] Loss: 0.0069	Accuracy: 99.874
+[Test] Accuracy: 92.520
+
+Epoch 182
+Learning rate 1.00000e-03
+[Training] Time: 35.546 seconds
+[Training] Loss: 0.0071	Accuracy: 99.866
+[Test] Accuracy: 92.580
+
+Epoch 183
+Learning rate 1.00000e-03
+[Training] Time: 35.473 seconds
+[Training] Loss: 0.0071	Accuracy: 99.864
+[Test] Accuracy: 92.560
+
+Epoch 184
+Learning rate 1.00000e-03
+[Training] Time: 35.496 seconds
+[Training] Loss: 0.0068	Accuracy: 99.874
+[Test] Accuracy: 92.640
+
+Epoch 185
+Learning rate 1.00000e-03
+[Training] Time: 35.527 seconds
+[Training] Loss: 0.0075	Accuracy: 99.842
+[Test] Accuracy: 92.580
+
+Epoch 186
+Learning rate 1.00000e-03
+[Training] Time: 35.517 seconds
+[Training] Loss: 0.0071	Accuracy: 99.836
+[Test] Accuracy: 92.610
+
+Epoch 187
+Learning rate 1.00000e-03
+[Training] Time: 35.520 seconds
+[Training] Loss: 0.0065	Accuracy: 99.878
+[Test] Accuracy: 92.560
+
+Epoch 188
+Learning rate 1.00000e-03
+[Training] Time: 35.485 seconds
+[Training] Loss: 0.0067	Accuracy: 99.866
+[Test] Accuracy: 92.610
+
+Epoch 189
+Learning rate 1.00000e-03
+[Training] Time: 35.507 seconds
+[Training] Loss: 0.0068	Accuracy: 99.864
+[Test] Accuracy: 92.590
+
+Epoch 190
+Learning rate 1.00000e-03
+[Training] Time: 35.520 seconds
+[Training] Loss: 0.0069	Accuracy: 99.852
+[Test] Accuracy: 92.600
+
+Epoch 191
+Learning rate 1.00000e-03
+[Training] Time: 35.490 seconds
+[Training] Loss: 0.0067	Accuracy: 99.872
+[Test] Accuracy: 92.420
+
+Epoch 192
+Learning rate 1.00000e-03
+[Training] Time: 35.519 seconds
+[Training] Loss: 0.0069	Accuracy: 99.860
+[Test] Accuracy: 92.500
+
+Epoch 193
+Learning rate 1.00000e-03
+[Training] Time: 35.514 seconds
+[Training] Loss: 0.0063	Accuracy: 99.882
+[Test] Accuracy: 92.630
+
+Epoch 194
+Learning rate 1.00000e-03
+[Training] Time: 35.507 seconds
+[Training] Loss: 0.0069	Accuracy: 99.852
+[Test] Accuracy: 92.480
+
+Epoch 195
+Learning rate 1.00000e-03
+[Training] Time: 35.517 seconds
+[Training] Loss: 0.0058	Accuracy: 99.916
+[Test] Accuracy: 92.560
+
+Epoch 196
+Learning rate 1.00000e-03
+[Training] Time: 35.529 seconds
+[Training] Loss: 0.0064	Accuracy: 99.888
+[Test] Accuracy: 92.520
+
+Epoch 197
+Learning rate 1.00000e-03
+[Training] Time: 35.544 seconds
+[Training] Loss: 0.0066	Accuracy: 99.870
+[Test] Accuracy: 92.510
+
+Epoch 198
+Learning rate 1.00000e-03
+[Training] Time: 35.504 seconds
+[Training] Loss: 0.0065	Accuracy: 99.856
+[Test] Accuracy: 92.500
+
+Epoch 199
+Learning rate 1.00000e-03
+[Training] Time: 35.524 seconds
+[Training] Loss: 0.0065	Accuracy: 99.878
+[Test] Accuracy: 92.570
+
+Model training finished.
+Time: 7557.415 seconds. ( 2.0 hours 5.0 minutes 57.415 seconds)
+Best Accuracy: 92.750
