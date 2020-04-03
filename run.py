@@ -14,7 +14,7 @@ def createArgParser():
     #nargs specify how many arguments is accepted for this particular option. '+' means all and generate error message when there is none.
     #metavar just alters the displayed help message for better clarification.
     #resnet1202 is only provided as a potential option. Wouldn't use it generally.
-    parser.add_argument('--shutdown', help='shutdown machine after execution',
+    parser.add_argument('-s', '--shutdown', help='shutdown machine after execution',
                         action='store_true')
     return parser
 
@@ -24,8 +24,8 @@ def runTrainer(models):
         cmd = cmd + ' --arch=' + model 
         cmd = cmd + ' --save-dir=save_' + model 
         cmd = cmd + ' |& tee -a ' + model + '.log'
-    print('Running trainer for ' + model + ':\n', cmd)
-    os.system(cmd)
+        print('Running trainer for ' + model + ':\n', cmd)
+        os.system(cmd)
     return None
 
 parser = createArgParser()
@@ -39,7 +39,7 @@ if 'all' in args.models:
 # logging information
 print("The program will run trainer for {}".format(', '.join(args.models)))
 if args.shutdown:
-    print("IMPORTANT: Machine will be shutdown after program finishes execution")
+    print("IMPORTANT: Machine will SHUTDOWN after program execution")
 
 runTrainer(args.models)
 
