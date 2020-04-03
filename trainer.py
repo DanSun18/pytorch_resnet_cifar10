@@ -59,6 +59,7 @@ parser.add_argument('--save-dir', dest='save_dir',
 parser.add_argument('--save-every', dest='save_every',
                     help='Saves checkpoints at every specified number of epochs',
                     type=int, default=10)
+
 best_prec1 = 0 #best precision @ 1 (top-1 error)
 
 
@@ -68,11 +69,9 @@ def main():
 
 
     # Create save_dir if it does not exist
-    if not os.path.exists(args.save_dir):
-        os.makedirs(args.save_dir)
+    check_dir_exist_and_create(args.save_dir)
  
-    model = torch.nn.DataParallel(resnet.__dict__[args.arch]()) # get the model from resnet module based on specified architecture
-    #DataParallel allows multiple GPUs to be utilized
+    model = create_model(args.arch)
     model.cuda() #put model on GPU
 
     # optionally resume from a checkpoint
@@ -138,37 +137,78 @@ def main():
     if args.evaluate: # evaluate only. No training.
         validate(val_loader, model, criterion)
         return
+    
+    #start model training
+    print('Starting training from epoch {} to {}'.format(args.start_epoch, args.epochs))
+    train_total_start = time.time()
+    
+    for epoch in range(args.start_epoch, args.epochs): # train for one epoch
 
-    for epoch in range(args.start_epoch, args.epochs):
-
-        # train for one epoch
-        print('current lr {:.5e}'.format(optimizer.param_groups[0]['lr'])) #prints learning rate at the start of the epoch
-        train(train_loader, model, criterion, optimizer, epoch)
+        
+        print('\nEpoch {}'.format(epoch)) #prints empty line before a new epoch
+        print('Learning rate {:.5e}'.format(optimizer.param_groups[0]['lr']))
+        
+        train_epoch_start = time.time()
+        avg_loss, avg_prec = train(train_loader, model, criterion, optimizer, epoch)
+        train_epoch_end = time.time()
+        train_epoch_elpased = train_epoch_end - train_epoch_start
+        print("[Training] Time: {:.3f} seconds".format(train_epoch_elpased))
+        print("[Training] Loss: {:.4f}\tAccuracy: {:.3f}".format(avg_loss, avg_prec))
+        
+        # register epoch at scheduler
         lr_scheduler.step()
 
         # evaluate on validation set
         prec1 = validate(val_loader, model, criterion)
-
+        print('[Test] Accuracy: {:.3f}'.format(prec1))
+        
         # remember best prec@1 and save checkpoint
         is_best = prec1 > best_prec1
         best_prec1 = max(prec1, best_prec1)
 
-        if epoch > 0 and epoch % args.save_every == 0:
+        if epoch > 0 and epoch % args.save_every == 0: #saves checkpoint at specified intervals
             save_checkpoint({
                 'epoch': epoch + 1,
                 'state_dict': model.state_dict(),
                 'best_prec1': best_prec1,
             }, is_best, filename=os.path.join(args.save_dir, 'checkpoint.th')) #checkpoint overwrites previous checkpoints
+        
+        if is_best: # saves/update best model 
+            save_checkpoint({
+                'state_dict': model.state_dict(),
+                'best_prec1': best_prec1,
+            }, is_best, filename=os.path.join(args.save_dir, 'model.th'))
+    
+    train_total_end = time.time()
+    train_total_elapsed = train_total_end - train_total_start
+    hours, minutes, seconds = seconds_to_hour_minute_second(train_total_elapsed)
+    print('\nModel training finished.')
+    print('Time: {:.3f} seconds. ( {:d} hours {:d} minutes {:.3f} seconds)'.format(train_total_elapsed, hours, minutes, seconds))
+    print('Best Accuracy: {:.3f}'.format(best_prec1))
 
-        save_checkpoint({
-            'state_dict': model.state_dict(),
-            'best_prec1': best_prec1,
-        }, is_best, filename=os.path.join(args.save_dir, 'model.th'))
+def check_dir_exist_and_create(path):
+    ''' 
+    Check if directory exists. If not, create the directory 
+    path: path to the directory
+    '''
+    if not os.path.exists(path):
+        print("Creating directory at {}".format(path))
+        os.makedirs(path)
 
+def create_model(model_architecture):
+    '''
+    creates the model used for this run.
+    returns the model created
+    '''
+    model = torch.nn.DataParallel(resnet.__dict__[model_architecture]()) # get the model from resnet module based on specified architecture
+    #DataParallel allows multiple GPUs to be utilized
+    return model
+    
 
 def train(train_loader, model, criterion, optimizer, epoch):
     """
         Run one train epoch
+        returns average loss and average accuracy
     """
     batch_time = AverageMeter()
     data_time = AverageMeter() #data loading time of each batch. Not that important, I think
@@ -178,12 +218,12 @@ def train(train_loader, model, criterion, optimizer, epoch):
     # switch to training mode
     model.train()
 
-    end = time.time()
+    batch_end = time.time()
     
     for i, (input, target) in enumerate(train_loader): # i is the batch-index
 
         # measure data loading time (from the train_loader?)
-        data_time.update(time.time() - end)
+        data_time.update(time.time() - batch_end)
     
         # put target and input on GPU 
         target = target.cuda()
@@ -214,9 +254,10 @@ def train(train_loader, model, criterion, optimizer, epoch):
         top1.update(prec1.item(), input.size(0))
 
         # record elapsed time for this batch
-        batch_time.update(time.time() - end)
+        batch_time.update(time.time() - batch_end)
         
         #print training information as specified
+        '''
         if i % args.print_freq == 0:
             print('Epoch: [{0}][{1}/{2}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
@@ -225,9 +266,11 @@ def train(train_loader, model, criterion, optimizer, epoch):
                   'Prec@1 {top1.val:.3f} ({top1.avg:.3f})'.format(
                       epoch, i, len(train_loader), batch_time=batch_time,
                       data_time=data_time, loss=losses, top1=top1))
+        '''
         
-        end = time.time() #update end time of current batch
-
+        batch_end = time.time() #update end time of current batch
+    
+    return losses.avg, top1.avg
 
 def validate(val_loader, model, criterion):
     """
@@ -241,7 +284,7 @@ def validate(val_loader, model, criterion):
     # switch to evaluate mode
     model.eval()
 
-    end = time.time()
+    batch_end = time.time()
     with torch.no_grad():
         for i, (input, target) in enumerate(val_loader):
             target = target.cuda()
@@ -264,9 +307,9 @@ def validate(val_loader, model, criterion):
             top1.update(prec1.item(), input.size(0))
 
             # measure elapsed time
-            batch_time.update(time.time() - end)
+            batch_time.update(time.time() - batch_end)
             
-
+            '''
             if i % args.print_freq == 0:
                 print('Test: [{0}/{1}]\t'
                       'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
@@ -274,11 +317,13 @@ def validate(val_loader, model, criterion):
                       'Prec@1 {top1.val:.3f} ({top1.avg:.3f})'.format(
                           i, len(val_loader), batch_time=batch_time, loss=losses,
                           top1=top1))
+            '''
             
-            end = time.time()
-
+            batch_end = time.time()
+    '''
     print(' * Prec@1 {top1.avg:.3f}'
           .format(top1=top1))
+    '''
 
     return top1.avg
 
@@ -289,6 +334,17 @@ def save_checkpoint(state, is_best, filename='checkpoint.pth.tar'):
     # the parameter is_best does not seem to be used?
     torch.save(state, filename)
 
+def seconds_to_hour_minute_second(seconds):
+    ''' 
+    converts seconds into hour, minute, and seconds
+    outputs tuple hour, minute, seconds
+    '''
+    remainder_seconds = seconds % 60
+    total_minutes = (seconds - remainder_seconds) / 60
+    remainder_minutes = total_minutes % 60
+    total_hours = (total_minutes - remainder_minutes) / 60
+    return total_hours, remainder_minutes, remainder_seconds
+    
 class AverageMeter(object):
     """Computes and stores the average and current value"""
     def __init__(self):
