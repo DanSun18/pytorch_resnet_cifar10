@@ -6,6 +6,8 @@ import argparse
 import os
 import shutil
 import time
+import sys
+import pickle
 
 import torch
 import torch.nn as nn
@@ -61,13 +63,17 @@ parser.add_argument('--save-every', dest='save_every',
                     type=int, default=10)
 
 best_prec1 = 0 #best precision @ 1 (top-1 error)
-
+best_prec_epoch = -1 #stores corresponding epoch that produces the best test accuracy. Reported in output
 
 def main():
     global args, best_prec1
     args = parser.parse_args()
 
-
+    train_losses = []
+    train_accs = []
+    test_accs = []
+    lrs = []
+    
     # Create save_dir if it does not exist
     check_dir_exist_and_create(args.save_dir)
  
@@ -124,8 +130,8 @@ def main():
         criterion.half()
         
     #define learning rate schduler
-    lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer,
-                                                        milestones=[100, 150], last_epoch=args.start_epoch - 1)
+    lr_scheduler = create_scheduler(optimizer)
+
 
     if args.arch in ['resnet1202', 'resnet110']:
         # for resnet1202 original paper uses lr=0.01 for first 400 minibatches for warm-up
@@ -154,18 +160,39 @@ def main():
         train_epoch_elpased = train_epoch_end - train_epoch_start
         print("[Training] Time: {:.3f} seconds".format(train_epoch_elpased))
         print("[Training] Loss: {:.4f}\tAccuracy: {:.3f}".format(avg_loss, avg_prec))
-        
-        # register epoch at scheduler
-        lr_scheduler.step()
 
+        
         # evaluate on validation set
         prec1 = validate(val_loader, model, criterion)
         print('[Test] Accuracy: {:.3f}'.format(prec1))
         
-        # remember best prec@1 and save checkpoint
+        # record-keeping
+        train_losses.append(avg_loss)
+        train_accs.append(avg_prec)
+        test_accs.append(prec1)
+        lrs.append(optimizer.param_groups[0]['lr'])
+        
+        # register epoch at scheduler
+        if isinstance(lr_scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
+            lr_scheduler.step(prec1)
+        elif isinstance(lr_scheduler,torch.optim.lr_scheduler.MultiStepLR):
+            lr_scheduler.step()
+        else:
+            print("Cannot recognize the type of lr_scheduler. Exiting")
+            sys.exit('Unrecognized lr_scheduler')
+        
+        # remember best prec@1 
         is_best = prec1 > best_prec1
         best_prec1 = max(prec1, best_prec1)
-
+        
+        if is_best: # saves/update best model, updates best precision epoch 
+            best_prec_epoch = epoch
+            save_checkpoint({
+                'state_dict': model.state_dict(),
+                'best_prec1': best_prec1,
+            }, is_best, filename=os.path.join(args.save_dir, 'model.th'))
+        
+        # save checkpoint
         if epoch > 0 and epoch % args.save_every == 0: #saves checkpoint at specified intervals
             save_checkpoint({
                 'epoch': epoch + 1,
@@ -173,19 +200,47 @@ def main():
                 'best_prec1': best_prec1,
             }, is_best, filename=os.path.join(args.save_dir, 'checkpoint.th')) #checkpoint overwrites previous checkpoints
         
-        if is_best: # saves/update best model 
-            save_checkpoint({
-                'state_dict': model.state_dict(),
-                'best_prec1': best_prec1,
-            }, is_best, filename=os.path.join(args.save_dir, 'model.th'))
+        
     
     train_total_end = time.time()
     train_total_elapsed = train_total_end - train_total_start
     hours, minutes, seconds = seconds_to_hour_minute_second(train_total_elapsed)
     print('\nModel training finished.')
     print('Time: {:.3f} seconds. ( {:d} hours {:d} minutes {:.3f} seconds)'.format(train_total_elapsed, hours, minutes, seconds))
-    print('Best Accuracy: {:.3f}'.format(best_prec1))
+    print('Best Accuracy: {:.3f} occured at epoch {}'.format(best_prec1, best_prec_epoch))
+    
+    # Write training historical data
+    # source https://stackabuse.com/reading-and-writing-lists-to-a-file-in-python/
+    print('Dumping training statistics to {}'.format(args.save_dir))
+    with open(os.path.join(args.save_dir, 'train_loss.data'), 'wb') as f:
+        pickle.dump(train_losses, f)
+    with open(os.path.join(args.save_dir, 'train_acc.data'), 'wb') as f:
+        pickle.dump(train_accs, f)
+    with open(os.path.join(args.save_dir, 'test_acc.data'), 'wb') as f:
+        pickle.dump(test_accs, f)
+    with open(os.path.join(args.save_dir, 'lr.data'), 'wb') as f:
+        pickle.dump(lrs, f)
+    
+    print('Program Exiting')
+    
 
+def create_scheduler(optimizer):
+    scheduler_name = 'ReduceLROnPlateau'
+    lr_scheduler = None
+    
+    
+    if scheduler_name == 'ReduceLROnPlateau':
+        lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=50)
+    else:
+        #default, from provided script
+        scheduler_name = 'MultiStepLR'
+        lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer,
+                                                        milestones=[100, 150], last_epoch=args.start_epoch - 1)
+    
+    print('Using scheduler {}'.format(scheduler_name))
+    
+    return lr_scheduler
+    
 def check_dir_exist_and_create(path):
     ''' 
     Check if directory exists. If not, create the directory 
