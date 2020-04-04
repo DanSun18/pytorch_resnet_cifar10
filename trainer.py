@@ -230,7 +230,7 @@ def create_scheduler(optimizer):
     
     
     if scheduler_name == 'ReduceLROnPlateau':
-        lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=50)
+        lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=50, mode='max')
     else:
         #default, from provided script
         scheduler_name = 'MultiStepLR'
