@@ -206,7 +206,7 @@ def main():
     train_total_elapsed = train_total_end - train_total_start
     hours, minutes, seconds = seconds_to_hour_minute_second(train_total_elapsed)
     print('\nModel training finished.')
-    print('Time: {:.3f} seconds. ( {:d} hours {:d} minutes {:.3f} seconds)'.format(train_total_elapsed, hours, minutes, seconds))
+    print('Time: {:.3f} seconds. ( {:d} hours {:d} minutes {:.3f} seconds)'.format(train_total_elapsed, int(hours), int(minutes), seconds))
     print('Best Accuracy: {:.3f} occured at epoch {}'.format(best_prec1, best_prec_epoch))
     
     # Write training historical data
