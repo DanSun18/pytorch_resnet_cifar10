@@ -206,8 +206,7 @@ def main():
     train_total_elapsed = train_total_end - train_total_start
     hours, minutes, seconds = seconds_to_hour_minute_second(train_total_elapsed)
     print('\nModel training finished.')
-    print('Time: {:.3f} seconds. ( {:d} hours {:d} minutes {:.3f} seconds)'.format(train_total_elapsed, int(hours), int(minutes), seconds))
-    print('Best Accuracy: {:.3f} occured at epoch {}'.format(best_prec1, best_prec_epoch))
+
     
     # Write training historical data
     # source https://stackabuse.com/reading-and-writing-lists-to-a-file-in-python/
@@ -220,6 +219,10 @@ def main():
         pickle.dump(test_accs, f)
     with open(os.path.join(args.save_dir, 'lr.data'), 'wb') as f:
         pickle.dump(lrs, f)
+
+    print('Time: {:.3f} seconds. ( {:d} hours {:d} minutes {:.3f} seconds)'.format(train_total_elapsed, int(hours), int(minutes), seconds))
+    print('Best Accuracy: {:.3f} occured at epoch {}'.format(best_prec1, best_prec_epoch))
+    
     
     print('Program Exiting')
     
