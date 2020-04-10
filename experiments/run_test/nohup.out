@@ -1,0 +1,3 @@
+The program will run trainer for resnet20
+Running trainer for resnet20:
+ python -u trainer.py --arch=resnet20 --save-dir=save_resnet20 --epochs=20 >> resnet20.log 2>&1
