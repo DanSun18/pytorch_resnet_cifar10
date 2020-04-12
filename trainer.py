@@ -46,11 +46,11 @@ parser.add_argument('--momentum', default=0.9, type=float, metavar='M',
 parser.add_argument('--weight-decay', '--wd', default=1e-4, type=float,
                     metavar='W', help='weight decay (default: 1e-4)')
 parser.add_argument('--print-freq', '-p', default=50, type=int,
-                    metavar='N', help='print frequency in number of batches (default: 50)')
+                    metavar='N', help='print frequency in number of batches (default: 50)') #deprecated. We are not using this parameter now
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
-                    help='evaluate model on validation set')
+                    help='evaluate model on validation set') #evaluation only, no training
 parser.add_argument('--pretrained', dest='pretrained', action='store_true',
                     help='use pre-trained model')
 parser.add_argument('--half', dest='half', action='store_true',
@@ -64,11 +64,16 @@ parser.add_argument('--save-every', dest='save_every',
 
 best_prec1 = 0 #best precision @ 1 (top-1 error)
 best_prec_epoch = -1 #stores corresponding epoch that produces the best test accuracy. Reported in output
+args = None
+experiment_setup = "" #Written throughout program execution to log experiment setup
+model = None
 
 def main():
-    global args, best_prec1
+    global args, best_prec1, best_prec_epoch, model
     args = parser.parse_args()
 
+    # record training statistics while model is being trained.
+    # saved to save_dir using pickles
     train_losses = []
     train_accs = []
     test_accs = []
@@ -96,8 +101,9 @@ def main():
     cudnn.benchmark = True # may improve performance if input size is not changing by searching for optimal algorithm to run.
                            # link: https://discuss.pytorch.org/t/what-does-torch-backends-cudnn-benchmark-do/5936/3
 
+    # create data loader for training and test data. 
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                     std=[0.229, 0.224, 0.225])
+                                     std=[0.229, 0.224, 0.225]) # how are these numbers chosen?
 
     train_loader = torch.utils.data.DataLoader(
         datasets.CIFAR10(root='./data', train=True, transform=transforms.Compose([
@@ -118,11 +124,9 @@ def main():
         num_workers=args.workers, pin_memory=True)
 
     # define loss function (criterion) and optimizer
-    criterion = nn.CrossEntropyLoss().cuda()
+    criterion = create_criterion('CrossEntropyLoss') 
 
-    optimizer = torch.optim.SGD(model.parameters(), args.lr,
-                                momentum=args.momentum,
-                                weight_decay=args.weight_decay)
+    optimizer = create_optimizer('SGD')
                                 
     #use half-precision if specified
     if args.half:
@@ -130,15 +134,17 @@ def main():
         criterion.half()
         
     #define learning rate schduler
-    lr_scheduler = create_scheduler(optimizer)
+    lr_scheduler = create_scheduler(optimizer, 'ReduceLROnPlateau')
 
-
+    '''
+    # Commented out for now. It seems we do not have to use so small a lr for resnet110
+    # Need to be verified though
     if args.arch in ['resnet1202', 'resnet110']:
         # for resnet1202 original paper uses lr=0.01 for first 400 minibatches for warm-up
         # then switch back. In this setup it will correspond for first epoch.
         for param_group in optimizer.param_groups:
             param_group['lr'] = args.lr*0.1
-
+    '''
 
     if args.evaluate: # evaluate only. No training.
         validate(val_loader, model, criterion)
@@ -207,6 +213,10 @@ def main():
     hours, minutes, seconds = seconds_to_hour_minute_second(train_total_elapsed)
     print('\nModel training finished.')
 
+    # Write experimental setup
+    print("Writing experimental setup to {}".format(args.save_dir))
+    with open(os.path.join(args.save_dir, 'experiment_setup.txt'), 'w') as f:
+        f.write(experiment_setup)
     
     # Write training historical data
     # source https://stackabuse.com/reading-and-writing-lists-to-a-file-in-python/
@@ -225,22 +235,91 @@ def main():
     
     
     print('Program Exiting')
+
+def create_model(model_architecture):
+    '''
+    creates the model used for this run.
+    returns the model created
+    '''
+    global experiment_setup
+    
+    
+    model = torch.nn.DataParallel(resnet.__dict__[model_architecture]()) # get the model from resnet module based on specified architecture
+                                                                        # DataParallel allows multiple GPUs to be utilized
+    
+    # logging
+    experiment_setup += "Model: {}\n".format(model_architecture)
+    
+    return model
+    
+def create_criterion(name):
+    '''
+    Creates the specified criterion
+    Returns the criterion
+    '''
+    criterion = None
+    
+    if name == 'CrossEntropyLoss':
+        criterion = nn.CrossEntropyLoss().cuda()
+    else: 
+        name = 'CrossEntropyLoss'
+        criterion = nn.CrossEntropyLoss().cuda()
+    
+    # logging
+    global experiment_setup
+    experiment_setup += "Criterion: {}\n".format(name)
+    
+    return criterion
+    
+def create_optimizer(name):
+    '''
+    Creates optimizer based on provided name (string)
+    returns the optimizer
+    '''
+    global experiment_setup, model
+    
+    optimizer = None
+    if name == 'SGD':
+        optimizer = torch.optim.SGD(model.parameters(), args.lr,
+                                    momentum=args.momentum,
+                                    weight_decay=args.weight_decay)
+        # logging
+        experiment_setup += "Optimizer: {}. Learning rate: {}, momentum: {}, weight decay: {}\n".format(
+            name, args.lr, args.momentum, args.weight_decay)
+    else: #default
+        name = 'SGD'
+        optimizer = torch.optim.SGD(model.parameters(), args.lr,
+                                    momentum=args.momentum,
+                                    weight_decay=args.weight_decay)
+        # logging
+        experiment_setup += "Optimizer: {}. Learning rate: {}, momentum: {}, weight decay: {}\n".format(
+            name, args.lr, args.momentum, args.weight_decay)
+   
+    return optimizer
     
 
-def create_scheduler(optimizer):
-    scheduler_name = 'ReduceLROnPlateau'
+def create_scheduler(optimizer, name):
+    global experiment_setup, args
+    
     lr_scheduler = None
     
     
-    if scheduler_name == 'ReduceLROnPlateau':
-        lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=50, mode='max')
+    if name == 'ReduceLROnPlateau':
+        _patience = 50
+        _mode = 'max'
+        lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=_patience, mode=_mode)
+        # logging
+        experiment_setup += "Scheduler: {}. Patience: {}, mode: {}\n".format(name, _patience, _mode)
     else:
         #default, from provided script
-        scheduler_name = 'MultiStepLR'
+        name = 'MultiStepLR'
+        _milestones = [100, 150]
+        _last_epoch = args.start_epoch - 1
         lr_scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer,
-                                                        milestones=[100, 150], last_epoch=args.start_epoch - 1)
-    
-    print('Using scheduler {}'.format(scheduler_name))
+                                                        milestones=_milestones, last_epoch=_last_epoch)
+        # logging
+        experiment_setup += "Scheduler: {}. Milestones: {}, last epoch: {}\n".format(name, _milestones, _last_epoch)
+    # print('Using scheduler {}'.format(name))
     
     return lr_scheduler
     
@@ -253,14 +332,7 @@ def check_dir_exist_and_create(path):
         print("Creating directory at {}".format(path))
         os.makedirs(path)
 
-def create_model(model_architecture):
-    '''
-    creates the model used for this run.
-    returns the model created
-    '''
-    model = torch.nn.DataParallel(resnet.__dict__[model_architecture]()) # get the model from resnet module based on specified architecture
-    #DataParallel allows multiple GPUs to be utilized
-    return model
+
     
 
 def train(train_loader, model, criterion, optimizer, epoch):
