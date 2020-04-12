@@ -56,7 +56,7 @@ print("The program will run trainer for {}".format(', '.join(args.models)))
 if args.shutdown:
     print("IMPORTANT: Machine will SHUTDOWN after program execution")
 
-runTrainer(args.models, args.epochs, args.output, args.lr)
+runTrainer(args.models, args.epochs, args.lr, args.output )
 
 #shutdown if specified in args
 if args.shutdown:
