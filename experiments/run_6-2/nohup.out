@@ -1,0 +1,5 @@
+The program will run trainer for resnet56
+IMPORTANT: Machine will SHUTDOWN after program execution
+Running trainer for resnet56:
+ python -u trainer.py --arch=resnet56 --save-dir=save_resnet56 --epochs=500 --lr=0.3 >> resnet56.log 2>&1
+Shutting down in 5s
