@@ -1,0 +1,130 @@
+Creating directory at save_resnet20
+Files already downloaded and verified
+Starting training from epoch 0 to 20
+
+Epoch 0
+Learning rate 1.00000e-01
+[Training] Time: 22.292 seconds
+[Training] Loss: 1.6544	Accuracy: 39.460
+[Test] Accuracy: 47.760
+
+Epoch 1
+Learning rate 1.00000e-01
+[Training] Time: 21.543 seconds
+[Training] Loss: 1.1278	Accuracy: 59.358
+[Test] Accuracy: 55.440
+
+Epoch 2
+Learning rate 1.00000e-01
+[Training] Time: 21.742 seconds
+[Training] Loss: 0.9287	Accuracy: 67.186
+[Test] Accuracy: 66.630
+
+Epoch 3
+Learning rate 1.00000e-01
+[Training] Time: 21.743 seconds
+[Training] Loss: 0.8136	Accuracy: 71.312
+[Test] Accuracy: 70.150
+
+Epoch 4
+Learning rate 1.00000e-01
+[Training] Time: 21.737 seconds
+[Training] Loss: 0.7085	Accuracy: 75.028
+[Test] Accuracy: 68.800
+
+Epoch 5
+Learning rate 1.00000e-01
+[Training] Time: 21.577 seconds
+[Training] Loss: 0.6450	Accuracy: 77.774
+[Test] Accuracy: 74.260
+
+Epoch 6
+Learning rate 1.00000e-01
+[Training] Time: 21.781 seconds
+[Training] Loss: 0.5961	Accuracy: 79.288
+[Test] Accuracy: 75.500
+
+Epoch 7
+Learning rate 1.00000e-01
+[Training] Time: 21.766 seconds
+[Training] Loss: 0.5586	Accuracy: 80.730
+[Test] Accuracy: 80.090
+
+Epoch 8
+Learning rate 1.00000e-01
+[Training] Time: 21.698 seconds
+[Training] Loss: 0.5227	Accuracy: 82.066
+[Test] Accuracy: 80.870
+
+Epoch 9
+Learning rate 1.00000e-01
+[Training] Time: 21.588 seconds
+[Training] Loss: 0.5028	Accuracy: 82.696
+[Test] Accuracy: 78.160
+
+Epoch 10
+Learning rate 1.00000e-01
+[Training] Time: 21.786 seconds
+[Training] Loss: 0.4782	Accuracy: 83.492
+[Test] Accuracy: 80.470
+
+Epoch 11
+Learning rate 1.00000e-01
+[Training] Time: 21.763 seconds
+[Training] Loss: 0.4599	Accuracy: 83.958
+[Test] Accuracy: 79.940
+
+Epoch 12
+Learning rate 1.00000e-01
+[Training] Time: 21.695 seconds
+[Training] Loss: 0.4442	Accuracy: 84.606
+[Test] Accuracy: 78.210
+
+Epoch 13
+Learning rate 1.00000e-01
+[Training] Time: 21.527 seconds
+[Training] Loss: 0.4316	Accuracy: 84.966
+[Test] Accuracy: 80.760
+
+Epoch 14
+Learning rate 1.00000e-01
+[Training] Time: 21.807 seconds
+[Training] Loss: 0.4161	Accuracy: 85.686
+[Test] Accuracy: 82.670
+
+Epoch 15
+Learning rate 1.00000e-01
+[Training] Time: 21.773 seconds
+[Training] Loss: 0.4037	Accuracy: 85.904
+[Test] Accuracy: 82.410
+
+Epoch 16
+Learning rate 1.00000e-01
+[Training] Time: 21.703 seconds
+[Training] Loss: 0.3981	Accuracy: 86.258
+[Test] Accuracy: 77.660
+
+Epoch 17
+Learning rate 1.00000e-01
+[Training] Time: 21.550 seconds
+[Training] Loss: 0.3885	Accuracy: 86.638
+[Test] Accuracy: 82.410
+
+Epoch 18
+Learning rate 1.00000e-01
+[Training] Time: 21.807 seconds
+[Training] Loss: 0.3766	Accuracy: 87.152
+[Test] Accuracy: 82.800
+
+Epoch 19
+Learning rate 1.00000e-01
+[Training] Time: 21.783 seconds
+[Training] Loss: 0.3705	Accuracy: 87.024
+[Test] Accuracy: 82.380
+
+Model training finished.
+Writing experimental setup to save_resnet20
+Dumping training statistics to save_resnet20
+Time: 463.762 seconds. ( 0 hours 7 minutes 43.762 seconds)
+Best Accuracy: 82.800 occured at epoch 18
+Program Exiting
