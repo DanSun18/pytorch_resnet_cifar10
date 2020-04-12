@@ -16,13 +16,15 @@ def createArgParser():
     #resnet1202 is only provided as a potential option. Wouldn't use it generally.
     parser.add_argument('--epochs', default=200, type=int, metavar='N',
                         help='number of total epochs to run')
+    parser.add_argument('--lr', '--learning-rate', default=0.1, type=float,
+                    metavar='LR', help='initial learning rate')
     parser.add_argument('-s', '--shutdown', help='shutdown machine after execution',
                         action='store_true')
     parser.add_argument('--output', help='shows detailed output from trainer',
                         action='store_true')
     return parser
 
-def runTrainer(models, epoch, show_output):
+def runTrainer(models, epoch, lr, show_output):
     for model in models:
         log_file = model + '.log'
         
@@ -30,6 +32,7 @@ def runTrainer(models, epoch, show_output):
         cmd = cmd + ' --arch=' + model 
         cmd = cmd + ' --save-dir=save_' + model 
         cmd = cmd + ' --epochs=' + str(epoch)
+        cmd = cmd + ' --lr=' + str(lr)
         
         if show_output:
             cmd = cmd + ' |& tee -a ' + log_file #append to log and show output on screen
@@ -53,7 +56,7 @@ print("The program will run trainer for {}".format(', '.join(args.models)))
 if args.shutdown:
     print("IMPORTANT: Machine will SHUTDOWN after program execution")
 
-runTrainer(args.models, args.epochs, args.output)
+runTrainer(args.models, args.epochs, args.output, args.lr)
 
 #shutdown if specified in args
 if args.shutdown:
