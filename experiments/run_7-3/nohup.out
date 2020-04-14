@@ -1,0 +1,5 @@
+The program will run trainer for resnet110
+IMPORTANT: Machine will SHUTDOWN after program execution
+Running trainer for resnet110:
+ python -u trainer.py --arch=resnet110 --save-dir=save_resnet110 --epochs=500 --lr=0.3 >> resnet110.log 2>&1
+Shutting down in 5s
