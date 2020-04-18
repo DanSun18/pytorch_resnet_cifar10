@@ -6,4 +6,28 @@
 # Just write down whatever I want to run on command line should be fine.
 # Facilitates running experiments.
 
-python -u run.py all --epochs 1000 --shutdown
+num_iters=5
+model="resnet20"
+epochs=500
+initial_lr=0.1
+
+experiment_id=8
+
+#running experiments
+for i in {1..${num_iters}}
+do
+        echo "Running iteration ${i}"
+        python -u run.py ${model} --epochs ${epochs} --lr ${initial_lr}
+        bash archive_results.sh run_${experiment_id}-${i}
+        sleep 1s        
+done
+
+#push to git
+git add .
+git commit -m "Finished running experiment ${experiment_id}"
+git push
+sleep 1s
+
+
+#shutdown the machine
+sudo shutdown -h now
