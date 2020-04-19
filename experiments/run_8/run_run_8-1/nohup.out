@@ -1,0 +1,29 @@
+Running iteration 1
+The program will run trainer for resnet20
+Running trainer for resnet20:
+ python -u trainer.py --arch=resnet20 --save-dir=save_resnet20 --epochs=500 --lr=0.1 >> resnet20.log 2>&1
+Moving data to experiments/run_run_8-1 in 3 seconds
+Running iteration 2
+The program will run trainer for resnet20
+Running trainer for resnet20:
+ python -u trainer.py --arch=resnet20 --save-dir=save_resnet20 --epochs=500 --lr=0.1 >> resnet20.log 2>&1
+Moving data to experiments/run_run_8-2 in 3 seconds
+mv: cannot stat ‘nohup.out’: No such file or directory
+Running iteration 3
+The program will run trainer for resnet20
+Running trainer for resnet20:
+ python -u trainer.py --arch=resnet20 --save-dir=save_resnet20 --epochs=500 --lr=0.1 >> resnet20.log 2>&1
+Moving data to experiments/run_run_8-3 in 3 seconds
+mv: cannot stat ‘nohup.out’: No such file or directory
+Running iteration 4
+The program will run trainer for resnet20
+Running trainer for resnet20:
+ python -u trainer.py --arch=resnet20 --save-dir=save_resnet20 --epochs=500 --lr=0.1 >> resnet20.log 2>&1
+Moving data to experiments/run_run_8-4 in 3 seconds
+mv: cannot stat ‘nohup.out’: No such file or directory
+Running iteration 5
+The program will run trainer for resnet20
+Running trainer for resnet20:
+ python -u trainer.py --arch=resnet20 --save-dir=save_resnet20 --epochs=500 --lr=0.1 >> resnet20.log 2>&1
+Moving data to experiments/run_run_8-5 in 3 seconds
+mv: cannot stat ‘nohup.out’: No such file or directory
